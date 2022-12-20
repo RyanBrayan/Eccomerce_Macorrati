@@ -1,0 +1,4 @@
+bin
+.vscode
+appsettings.Development.json
+appsettings.json
