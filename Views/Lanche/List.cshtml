@@ -1,0 +1,20 @@
+@model IEnumerable<SiteMVC.Models.Lanche>
+
+    <div>
+        <h1>@ViewData["Tirulo"]</h1>
+    </div>
+    <h2>@ViewData["Data"]</h2>
+
+    <hr/>
+    <h3>@ViewBag.Total @ViewBag.TotalLanches</h3>
+    <hr/>
+
+
+    <h3>@TempData["Nome"];</h3>
+
+    @foreach (var lanche in Model)
+    {
+        <h3>@lanche.LancheNome</h3>
+        <img src="@lanche.ImagemUrl">
+        <h4>Preço: @lanche.Preco.ToString("c")</h4>
+    }

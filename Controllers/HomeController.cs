@@ -9,6 +9,7 @@ public class HomeController : Controller
    
     public IActionResult Index()
     {
+        TempData["Nome"] = "RB";
         return View();
     }
     public IActionResult Demo()
