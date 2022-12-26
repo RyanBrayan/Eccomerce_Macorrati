@@ -1,20 +1,19 @@
-@model IEnumerable<SiteMVC.Models.Lanche>
+@model LancheListViewModel
+@* @{
+    Layout = "null";
+} Ao definir como null perde as propriedades do layout, que seria o menu*@
 
-    <div>
-        <h1>@ViewData["Tirulo"]</h1>
+<h2>Categoria Atual</h2>
+<div class="container">
+    <div class="row">
+        @foreach (var lanche in Model.Lanches)
+            {
+                <div class="col-sm-4 col-md-4 col-lg-4">
+                    <img class="img-fluid" src="@lanche.ImagemUrl"> 
+                    <h3>Preço: @lanche.Preco.ToString("c")</h3>
+                    <h4>@lanche.LancheNome</h4>
+                    <p>@lanche.DescriçãoCurta</p>
+                </div>
+            }
     </div>
-    <h2>@ViewData["Data"]</h2>
-
-    <hr/>
-    <h3>@ViewBag.Total @ViewBag.TotalLanches</h3>
-    <hr/>
-
-
-    <h3>@TempData["Nome"];</h3>
-
-    @foreach (var lanche in Model)
-    {
-        <h3>@lanche.LancheNome</h3>
-        <img src="@lanche.ImagemUrl">
-        <h4>Preço: @lanche.Preco.ToString("c")</h4>
-    }
+</div>

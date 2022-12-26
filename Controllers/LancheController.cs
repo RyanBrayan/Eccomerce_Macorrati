@@ -2,6 +2,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using SiteMVC.Models;
 using SiteMVC.Repositories.Interfaces;
+using SiteMVC.ViewsModels;
 
 namespace SiteMVC.Controllers
 {
@@ -17,16 +18,20 @@ namespace SiteMVC.Controllers
         }
         public IActionResult List()
         {
-            ViewData["Titulo"] = "Todos os lanches";
-            ViewData["Data"] = DateTime.Now;
+            // ViewData["Titulo"] = "Todos os lanches";
+            // ViewData["Data"] = DateTime.Now;
 
-            var lanches = _lancheRepository.Lanches;
+            // var lanches = _lancheRepository.Lanches;
 
 
-            var totalLanches = lanches.Count();
-            ViewBag.Total = "Total de lanches: ";
-            ViewBag.TotalLanches = totalLanches;
-            return View(lanches);
+            // var totalLanches = lanches.Count();
+            // ViewBag.Total = "Total de lanches: ";
+            // ViewBag.TotalLanches = totalLanches;
+            // return View(lanches);
+            var lanchesListViewModel = new LancheListViewModel();
+            lanchesListViewModel.Lanches = _lancheRepository.Lanches;
+            lanchesListViewModel.CategoriaAtual = "Categoria Atual";
+            return View(lanchesListViewModel);
         }
     }
 }
